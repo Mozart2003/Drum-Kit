@@ -1,5 +1,14 @@
-*{
+* {
   user-select: none;
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  height: 100vh;
+  overflow: hidden;
 }
 
 html {
@@ -8,18 +17,36 @@ html {
   background-size: cover;
 }
 
-body,html {
-  margin: 0;
-  padding: 0;
-  font-family: sans-serif;
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.logo-container{
+  background-color: black;
+  width: 100%;
+  box-shadow: 1px 1px 10px #ccc;
+}
+
+.logo {
+  text-align: center;
+  font-size: 4rem;
+  color: #ffc600;
+  margin: 2rem 0 1rem;
+  text-shadow: 0 0 1rem #000;
+  padding: 1rem;
+  font-family: cursive;
 }
 
 .keys {
-  display: flex;
   flex: 1;
-  min-height: 100vh;
+  display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: center;
+  width: 100%;
 }
 
 .key {
@@ -52,4 +79,45 @@ kbd {
   text-transform: uppercase;
   letter-spacing: .1rem;
   color: #ffc800;
+}
+
+/* ---------- MOBILE STYLES ---------- */
+@media (max-width: 768px) {
+  .keys {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    padding: 1rem 2rem;
+    width: 100%;
+  }
+
+  .key {
+    min-width: 0;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    padding: 0.5rem;
+    font-size: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    word-break: break-word;
+  }
+
+  .key kbd {
+    display: none;
+  }
+
+  .key .sound {
+    font-size: 1.5rem;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+  .logo {
+    font-size: 3.5rem;
+    margin: 1.5rem 1rem 1rem;
+  }
 }
